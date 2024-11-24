@@ -1,5 +1,8 @@
 import {cloneElement} from "react";
 import {AppBar, Toolbar, Button, useScrollTrigger, Typography} from "@mui/material";
+import {styled} from "@mui/material/styles";
+import logo from "../../assets/logo.svg";
+
 
 const Header = () => {
 
@@ -20,10 +23,11 @@ const Header = () => {
   return(
     <>
         <ElevationScroll>
-            <AppBar>
-                <Toolbar>
-                    <Typography variant="h4">وب سایت شخصی سعید افراز</Typography>
-                    <Button variant="text" color="secondary">کلیک کن</Button>
+            <AppBar position="static">
+                <Toolbar disableGutters>
+                <img src={logo} alt="لوگوی وب سایت" style={{width:"3rem" }} />
+                    <Typography variant="h4" sx={{marginLeft: 10, typography:"h3"}}>وب سایت شخصی سعید افراز</Typography>
+                    <Button variant="contained">کلیک دوم</Button>
                 </Toolbar>
             </AppBar>
         </ElevationScroll>

@@ -5,6 +5,10 @@ import {HelmetProvider, Helmet} from "react-helmet-async";
 import CreateCache from "@emotion/cache";
 import {prefixer} from "stylis";
 import { theme } from "./../ui/theme";
+import Sidebar from "../Sidebar";
+import Grid from "@mui/material/Unstable_Grid2";
+
+
 
 //NOTE Create RTL Cache
 const cacheRTL = CreateCache({
@@ -20,7 +24,10 @@ const MainLayout = ({ children }) => {
           <Helmet>
             <title>وب سایت شخصی</title>
           </Helmet>
-          {children}
+           {/* Grid System */}
+           <Grid container sx={{height: "100vh"}}>
+              {children}
+           </Grid>
         </HelmetProvider>
       </ThemeProvider>
     </CacheProvider>
