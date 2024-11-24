@@ -12,7 +12,7 @@ import {
   import { grey } from "@mui/material/colors";
 
 
-const DrawerContent = ({value, handleChange}) => {
+const DrawerContent = ({value, handleChange, setDrawerOpen }) => {
 
     const tabProps = (index) => {
         return {
@@ -23,15 +23,21 @@ const DrawerContent = ({value, handleChange}) => {
 
    return (
     <Box sx={{ justifyContent: "center", textAlign: "center", mt: 2 }}>
-    <Hidden mdDown>
+  
       <Avatar
         src={require("../../assets/avatar.png")}
         variant="rounded"
-        sx={{ height: 200, width: 200, margin: "0 auto" }}
+        sx={{ height: 200, width: 200, margin: "0 auto", display:{
+            xl:"block",
+            lg: "block",
+            md: "block",
+            sm: "none",
+            xs: "none"
+        } }}
       >
         SA
       </Avatar>
-    </Hidden>
+   
     <Typography variant="h6" color="whitesmoke">
       سعید افراز
     </Typography>
@@ -49,17 +55,65 @@ const DrawerContent = ({value, handleChange}) => {
       value={value}
       onChange={handleChange}
     >
-      <Tab label="صفحه اصلی" icon={<HomeRounded />} iconPosition="start" {...tabProps(0)} />
+      <Tab label="صفحه اصلی" icon={<HomeRounded />} iconPosition="start" onClick={() => setDrawerOpen(false)} {...tabProps(0)} sx={{
+        "&.MuiTab-root":{
+            backgroundColor: grey[800],
+            borderRadius: 2,
+            my: 0.5,
+            mx: 1,
+            minHeight: 50
+        }
+      }} />
 
-      <Tab label="درباره من" icon={<FaceRounded />} iconPosition="start" {...tabProps(1)} />
+      <Tab label="درباره من" icon={<FaceRounded />} iconPosition="start" onClick={() => setDrawerOpen(false)} {...tabProps(1)} sx={{
+        "&.MuiTab-root":{
+            backgroundColor: grey[800],
+            borderRadius: 2,
+            my:0.5,
+            mx: 1,
+            minHeight: 50
+        }
+      }} />
 
-      <Tab label="رزومه من" icon={<TextSnippetRounded />} iconPosition="start" {...tabProps(2)} />
+      <Tab label="رزومه من" icon={<TextSnippetRounded />} iconPosition="start" onClick={() => setDrawerOpen(false)} {...tabProps(2)} sx={{
+        "&.MuiTab-root":{
+            backgroundColor: grey[800],
+            borderRadius: 2,
+            my:0.5,
+            mx: 1,
+            minHeight: 50
+        }
+      }} />
 
-      <Tab label="نمونه کارها" icon={<TerminalRounded />} iconPosition="start" {...tabProps(3)} />
+      <Tab label="نمونه کارها" icon={<TerminalRounded />} iconPosition="start" onClick={() => setDrawerOpen(false)} {...tabProps(3)} sx={{
+        "&.MuiTab-root":{
+            backgroundColor: grey[800],
+            borderRadius: 2,
+            my:0.5,
+            mx: 1,
+            minHeight: 50
+        }
+      }} />
 
-      <Tab label="نظرات دانشجویان" icon={<MessageRounded />} iconPosition="start" {...tabProps(4)} />
+      <Tab label="نظرات دانشجویان" icon={<MessageRounded />} iconPosition="start" onClick={() => setDrawerOpen(false)} {...tabProps(4)} sx={{
+        "&.MuiTab-root":{
+            backgroundColor: grey[800],
+            borderRadius: 2,
+            my:0.5,
+            mx: 1,
+            minHeight: 50
+        }
+      }} />
 
-      <Tab label="ارتباط با من" icon={<ConnectWithoutContactRounded />} iconPosition="start" {...tabProps(5)} />
+      <Tab label="ارتباط با من" icon={<ConnectWithoutContactRounded />} iconPosition="start" onClick={() => setDrawerOpen(false)} {...tabProps(5)} sx={{
+        "&.MuiTab-root":{
+            backgroundColor: grey[800],
+            borderRadius: 2,
+            my:0.5,
+            mx: 1,
+            minHeight: 50
+        }
+      }} />
 
     </Tabs>
 

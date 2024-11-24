@@ -9,13 +9,7 @@ import { useState } from "react";
 import DrawerContent from "./ui/DrawerContent";
 
 const Sidebar = ({value, handleChange}) => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const handleDrawerToggle = () => {
-    setDrawerOpen(!drawerOpen);
-  };
-
-    
+  const [drawerOpen, setDrawerOpen] = useState(false); 
 
   return (
     <Grid
@@ -37,11 +31,11 @@ const Sidebar = ({value, handleChange}) => {
           }
         }}
       >
-        <Fab color="primary" aria-label="Sidebar" size="small" sx={{m:2}} onClick={handleDrawerToggle}>
+        <Fab aria-label="Sidebar" size="small" sx={{m:2, backgroundColor: red[500]}} onClick={() => setDrawerOpen(true)}>
           <MenuRounded />
         </Fab>
       </Box>
-      <DrawerContent value={value} handleChange={handleChange} />
+      <DrawerContent value={value} handleChange={handleChange}/>
       <Drawer
        open={drawerOpen}
        variant="temporary"
@@ -49,11 +43,17 @@ const Sidebar = ({value, handleChange}) => {
        sx={{
         "& .MuiDrawer-paper": {
           width: 300
+        },
+        display: {
+          xs: "block",
+          sm: "block",
+          md: "none",
+          lg: "none"
         }
        }}
       >
              {/* Drawer */}
-             <DrawerContent value={value} handleChange={handleChange} />
+             <DrawerContent value={value} handleChange={handleChange}  setDrawerOpen={setDrawerOpen} />
       </Drawer>
     </Grid>
   );
