@@ -4,8 +4,7 @@ import {CacheProvider} from '@emotion/react';
 import {HelmetProvider, Helmet} from "react-helmet-async";
 import CreateCache from "@emotion/cache";
 import {prefixer} from "stylis";
-import { theme } from "./../ui/theme";
-import Sidebar from "../Sidebar";
+import { theme } from "./theme";
 import Grid from "@mui/material/Unstable_Grid2";
 
 
