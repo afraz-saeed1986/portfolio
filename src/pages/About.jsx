@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
+import {Helmet} from "react-helmet-async";
+import CountUp from "react-countup";
 import {
-  Box,
+  Tooltip,
   Typography,
   Card,
   CardContent,
   Divider,
   Chip,
   Avatar,
+  Box
 } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
@@ -15,8 +18,9 @@ import { CodeRounded, SelfImprovementRounded } from "@mui/icons-material";
 import DevInfo from "./components/DevInfo";
 import Skill from "./components/Skill";
 import {devSkills} from "../constants/skills";
+import {devWorkInfo} from "../constants/details";
 
-const About = () => {
+const About = ({helmetTitle}) => {
 
   const [javascript, setJavascript] = useState(0);
   const [html, setHtml] = useState(0);
@@ -74,6 +78,9 @@ const {htmlSkill, cssSkill, jsSkill, gitSkill, nodeSkill, reactSkill} = devSkill
         overflowY: "scroll"
       }}
     >
+       <Helmet>
+                <title>{helmetTitle}</title>
+       </Helmet>
       <CardContent>
         <Grid container sx={{ mx: 3 }}>
           <Grid xs={12} sm={12} md={8} lg={8} xl={8}>
@@ -97,13 +104,46 @@ const {htmlSkill, cssSkill, jsSkill, gitSkill, nodeSkill, reactSkill} = devSkill
                 sx={{ p: 3 }}
               />
             </Divider>
-           <DevInfo>
-            نام و نام خانوادگی : سعید افراز
-           </DevInfo>
-           <DevInfo>سن : 30 سال</DevInfo>
-           <DevInfo>شهر : تهران</DevInfo>
-           <DevInfo>saeed.az@gmail.com : آدرس ایمیل</DevInfo>
-           <DevInfo>شماره موبایل : 09110000000</DevInfo>
+
+            <Grid container sx={{justifyContent: "space-between",}}>
+                  <Grid xs={4} sm={4} md={3} lg={3} sx={{
+                    mt: 3,
+                    display: {
+                          "xs": "none",
+                          "sm": "block",
+                          "md": "block"
+                  }
+                }} 
+                >
+                  {
+                    devWorkInfo.map((item, index) => (
+                      <Box key={index} component="div" sx={{width: 1, mb:1}}>
+                        <Tooltip title={item.tooltipTitle} placement="right" arrow>
+                            <Chip icon={item.icon} label={
+                                <Typography variant="body1" color="whitesmoke" >
+                                  <CountUp
+                                      start={0}
+                                      end={item.total}
+                                      duration={2}
+                                  />
+                                </Typography>
+                              } sx={{p:2, backgroundColor: item.color, width: 1}} />
+                        </Tooltip>
+                      </Box>
+                    ))
+                  }
+                </Grid>
+
+                <Grid xs={12} sm={8} md={9} lg={9}>
+                      <DevInfo>
+                        نام و نام خانوادگی : سعید افراز
+                      </DevInfo>
+                      <DevInfo>سن : 30 سال</DevInfo>
+                      <DevInfo>شهر : تهران</DevInfo>
+                      <DevInfo>saeed.az@gmail.com : آدرس ایمیل</DevInfo>
+                      <DevInfo>شماره موبایل : 09110000000</DevInfo>
+                </Grid>
+            </Grid>
           </Grid>
           <Grid xs={0} sm={0} md={4} lg={4} xl={4}>
                 <Avatar src={avatar} variant="rounded" sx={{height: 250, width: 250,margin: "0 auto", display: {

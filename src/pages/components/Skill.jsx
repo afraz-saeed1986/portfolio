@@ -8,7 +8,7 @@ const Skill = ({icon, color, name, value}) => {
                 "&::before, &::after":{
                     borderColor: `${color}.main`
                 }, 
-                mt:1
+                mt:3
             }}>
                 <Chip icon={
                     <Box component="img" src={icon} sx={{height: 30}}/>
