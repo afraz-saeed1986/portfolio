@@ -1,7 +1,7 @@
 import {ThemeProvider} from "@mui/material/styles";
 import rtlPlugin from "stylis-plugin-rtl";
 import {CacheProvider} from '@emotion/react';
-import {HelmetProvider, Helmet} from "react-helmet-async";
+import {HelmetProvider} from "react-helmet-async";
 import CreateCache from "@emotion/cache";
 import {prefixer} from "stylis";
 import { lightTheme, darkTheme } from "./theme";
@@ -23,7 +23,6 @@ const MainLayout = ({ children, mode }) => {
     <CacheProvider value={cacheRTL}>
       <ThemeProvider theme={theme}>
         <HelmetProvider>
-
            <Grid container sx={{height: "100vh"}}>
               {children}
            </Grid>

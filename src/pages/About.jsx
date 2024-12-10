@@ -15,10 +15,10 @@ import Grid from "@mui/material/Unstable_Grid2";
 
 import avatar from "../assets/avatar02.png";
 import { CodeRounded, SelfImprovementRounded } from "@mui/icons-material";
-import DevInfo from "./components/DevInfo";
-import Skill from "./components/Skill";
+import {DevInfo, Skill} from "../components/pages";
 import {devSkills} from "../constants/skills";
 import {devWorkInfo} from "../constants/details";
+import { CustomAvatar } from "../components/common";
 
 const About = ({helmetTitle}) => {
 
@@ -146,15 +146,7 @@ const {htmlSkill, cssSkill, jsSkill, gitSkill, nodeSkill, reactSkill} = devSkill
             </Grid>
           </Grid>
           <Grid xs={0} sm={0} md={4} lg={4} xl={4}>
-                <Avatar src={avatar} variant="rounded" sx={{height: 250, width: 250,margin: "0 auto", display: {
-                    xl: "block",
-                    lg: "block",
-                    md: "block",
-                    sm: "none",
-                    xs: "none"
-                }}}>
-                    SA
-                </Avatar>
+            <CustomAvatar avatar={avatar} size={250} fallback="SA" />
           </Grid>
         </Grid>
         <Grid container>

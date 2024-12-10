@@ -25,7 +25,7 @@ import {
 import { Helmet } from "react-helmet-async";
 
 import worldMap from "../assets/map.svg";
-import { contactValidationSchema } from "./validations/contactValidation";
+import { contactValidationSchema } from "../validations/contactValidation";
 
 const Contact = ({ helmetTitle }) => {
     const [loading, setLoading] = useState(false);

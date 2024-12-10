@@ -3,7 +3,7 @@ import MainContext from "../../context";
 import {Tabs, Tab} from "@mui/material";
 
 import { grey } from "@mui/material/colors";
-import {tabsData} from "../data/tabsData.sidebar";
+import {tabsData} from "../../constants/tabsData";
 import {useTheme} from "@mui/material/styles";
 
 

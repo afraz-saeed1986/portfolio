@@ -10,11 +10,11 @@ const SidebarContent = () => {
   
     <SidebarHeader />
 
-    <Divider variant="middle" color={grey[900]} />
+    <Divider variant="middle" />
 
     <SidebarTabs />
 
-    <Divider variant="middle" color={grey[900]} sx={{mt:2}} />
+    <Divider variant="middle" sx={{mt:2}} />
 
     <SidebarFooter />
   </Box>
