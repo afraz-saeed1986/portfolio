@@ -5,12 +5,14 @@ import { useState } from "react";
 import {GitHub, Telegram, Instagram, WhatsApp} from "@mui/icons-material";
 
 import avatar from "../../assets/avatar.png";
+import ThemeActionButton from "../ThemeActionButton";
 
 const SidebarHeader = () => {
   const [start, setStart] = useState(false);
 
     return (
         <>
+            <ThemeActionButton />
             <Avatar
         src={avatar}
         variant="rounded"

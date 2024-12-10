@@ -11,14 +11,20 @@ import SidebarContainer from "./SidebarContainer";
 import MainContext from "../context";
 import { DrawerActionButton } from "../components/drawer";
 
-import {Home, About, Resume, Courses, Comments} from "../pages";
+import {Home, About, Resume, Courses, Comments, Contact} from "../pages";
 
 function AppContainer() {
   const [pageNumber, setPageNumber] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [mode, setMode] = useState();
 
   const theme = useTheme();
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
+  const prefersDarkMode = useMediaQuery('(prefers-color-cheme: dark)');
+
+  useEffect(() => {
+    setMode(prefersDarkMode ? "dark" : "light");
+  }, []);
 
   useEffect(() => {
       if(isMdUp){
@@ -30,9 +36,13 @@ function AppContainer() {
     setPageNumber(newPage);
   };
 
+  const handleThemeChange = () => {
+      setMode(prevMode => prevMode === "light" ? "dark" : "light");
+  }
+
   return (
-    <MainContext.Provider value={{pageNumber, handlePageNumber, drawerOpen, setDrawerOpen}}>
-      <MainLayout>
+    <MainContext.Provider value={{pageNumber, handlePageNumber,handleThemeChange, drawerOpen, setDrawerOpen}}>
+      <MainLayout mode={mode}>
         <SidebarContainer>
           <Sidebar />
         </SidebarContainer>
@@ -57,9 +67,7 @@ function AppContainer() {
                 <Comments helmetTitle="وب سایت شخصی | نظرات دانشجویان" />
               </Page>
               <Page pageNumber={pageNumber} index={5}>
-                <Typography variant="h5" sx={{ textAlign: "center" }}>
-                  ارتباط با من
-                </Typography>
+                <Contact helmetTitle="وب سایت شخصی | ارتباط با من" />
               </Page>
           </SwipeableViews>
         </PagesContainer>
